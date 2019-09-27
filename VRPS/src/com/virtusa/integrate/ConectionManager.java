@@ -13,6 +13,7 @@ public class ConectionManager {
 		public static Connection openConnection() 
 				throws ClassNotFoundException,SQLException {
 			
+			
 			Class.forName(dataSource.getDriver());
 			connection=DriverManager.getConnection(dataSource.getUrl(),dataSource.getUsername(),dataSource.getPassword());
 			return connection;
