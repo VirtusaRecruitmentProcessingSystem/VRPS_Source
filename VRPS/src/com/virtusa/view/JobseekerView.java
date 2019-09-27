@@ -94,6 +94,7 @@ public class JobseekerView {
 		System.out.println("Enter Phone Number:");
 		String phone=sc.next();
 		
+		
 		System.out.println("Enter graduation percentage:");
 		float percentage=sc.nextFloat();
 		
@@ -113,6 +114,17 @@ public class JobseekerView {
 		}
 	
 	public void loginJobSeeker() {
+		Scanner sc=new Scanner(System.in);		
+		System.out.println("-----------------JobSeeker LOGIN--------------\n\n");
 		
+		System.out.println("Enter username:");
+		String uname=sc.next();
+		
+		System.out.println("Enter password:");
+		String password=sc.next();
+		
+		/*
+		 * 
+		 */
 	}
 }

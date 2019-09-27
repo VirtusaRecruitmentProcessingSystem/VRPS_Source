@@ -1,10 +1,15 @@
 package com.virtusa.controller;
 
+import com.virtusa.model.JobseekerModel;
+import com.virtusa.services.JobseekerServicesImpl;
+
 public class JobseekerController {
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
-	}
+public void registerJobSeeker(JobseekerModel model) {
+	
+	JobseekerServicesImpl register=new JobseekerServicesImpl();
+ 	register.JobseekerRegistration(model);
+ 	
+}
 
 }

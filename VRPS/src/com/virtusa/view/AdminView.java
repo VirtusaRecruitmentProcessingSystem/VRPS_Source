@@ -11,39 +11,26 @@ import com.virtusa.model.AdminModel;
 
 public class AdminView {
 	
-		public void main(String args[]) {
+		public void mainMenu() {
 		Scanner scanner=new Scanner(System.in);
-		System.out.println("Enter UserName and Password to log in");
+		System.out.println("---------Admin Login---------");
 		AdminView admiView=new AdminView();
+		
 		
 		Scanner scanner1=new Scanner(System.in);
 		
 		
-		System.out.print("UserName");
+		System.out.print("Enter UserName:");
 		String username=scanner1.next();
 		
-		System.out.print("Password");
+		System.out.print("Enter Password:");
 		String password=scanner1.next();
 
 		
-	
-		
-			AdminController admincontroller=new AdminController();
+	    AdminController admincontroller=new AdminController();
 		admincontroller.userAuthentication(username,password);
 		
 		}
+
+
 	}
-
-
-
-
-	
-
-	
-	
-	
-
-	
-	
-	
-	
