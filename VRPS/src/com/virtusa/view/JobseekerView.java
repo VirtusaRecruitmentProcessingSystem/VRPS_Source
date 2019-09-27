@@ -94,6 +94,7 @@ public class JobseekerView {
 		System.out.println("Enter Phone Number:");
 		String phone=sc.next();
 		
+		
 		System.out.println("Enter graduation percentage:");
 		float percentage=sc.nextFloat();
 		
