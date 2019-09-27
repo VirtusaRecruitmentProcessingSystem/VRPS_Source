@@ -12,7 +12,7 @@ public class AdminController {
 			String userType=
 					userService.userAuthenticationService(userModel);
 			
-			if(userType.contentEquals("STUDENT")) {
+			if(userType.contentEquals("Employee")) {
 				StudentView studentView=new StudentView();
 				studentView.mainStudentView();
 			}else if(userType.contentEquals("ADMIN")) {
