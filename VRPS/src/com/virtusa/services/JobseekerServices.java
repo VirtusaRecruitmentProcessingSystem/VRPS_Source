@@ -1,10 +1,7 @@
 package com.virtusa.services;
 
-public class JobseekerServices {
+import com.virtusa.model.JobseekerModel;
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
-	}
-
+public interface JobseekerServices{
+	public void JobseekerRegistration(JobseekerModel model);
 }
