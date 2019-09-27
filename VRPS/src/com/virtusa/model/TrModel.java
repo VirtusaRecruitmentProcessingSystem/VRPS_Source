@@ -20,6 +20,7 @@ public class TrModel {
 	public String getPassword() {
 		return password;
 	}
+	
 	public void setPassword(String password) {
 		// TODO Auto-generated method stub
 		
