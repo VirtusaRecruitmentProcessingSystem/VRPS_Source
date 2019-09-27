@@ -25,9 +25,11 @@ public class AdminView {
 		System.out.print("Password");
 		String password=scanner1.next();
 
-		AdminModel adminModel=new AdminModel(username,password);
-		AdminController admincontroller=new AdminController();
-		admincontroller.verifyAdmin(adminModel);
+		
+	
+		
+			AdminController admincontroller=new AdminController();
+		admincontroller.userAuthentication(username,password);
 		
 		}
 	}
