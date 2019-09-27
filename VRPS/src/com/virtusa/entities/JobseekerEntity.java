@@ -23,4 +23,6 @@ public class JobseekerEntity {
 	private String phoneNumber;
 	private List<String> qualification;
 	
+	
+	
 }
