@@ -113,6 +113,17 @@ public class JobseekerView {
 		}
 	
 	public void loginJobSeeker() {
+		Scanner sc=new Scanner(System.in);		
+		System.out.println("-----------------JobSeeker LOGIN--------------\n\n");
 		
+		System.out.println("Enter username:");
+		String uname=sc.next();
+		
+		System.out.println("Enter password:");
+		String password=sc.next();
+		
+		/*
+		 * 
+		 */
 	}
 }
