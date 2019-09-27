@@ -13,7 +13,7 @@ public class AdminView {
 	
 		public void main(String args[]) {
 		Scanner scanner=new Scanner(System.in);
-		System.out.println("Enter UserName and Password to log in");
+		System.out.println("Enter UserName and Password to log in:");
 		AdminView admiView=new AdminView();
 		
 		Scanner scanner1=new Scanner(System.in);
