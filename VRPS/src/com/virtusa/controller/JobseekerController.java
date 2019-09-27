@@ -1,10 +1,11 @@
 package com.virtusa.controller;
 
+import com.virtusa.model.JobseekerModel;
+
 public class JobseekerController {
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
-	}
+public void registerJobSeeker(JobseekerModel model) {
+	
+}
 
 }
