@@ -6,15 +6,12 @@ import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 
+import com.virtusa.model.JobseekerModel;
+
 public class JobseekerView {
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		
 
-	//}
-
-	//public void mainMenu() {
+	public void mainMenu() {
 		// TODO Auto-generated method stub
 		Scanner s=new Scanner(System.in);
 		System.out.println("\n1.JobSeeker Registration\n2.JobSeeker Login");
@@ -50,7 +47,7 @@ public class JobseekerView {
 			datex=dateFormat.parse(date);
 			}
 		catch(ParseException e) {
-			e.printStackTrace();
+			System.out.println("Enter valid Data in Specified Format");
 		}
 		
 		System.out.println("Enter year of passing:");
@@ -107,11 +104,12 @@ public class JobseekerView {
 		String password=sc.next();
 		
 		
-		System.out.println("\n"+fname+"\n"+mname+"\n"+lname+"\n"+datex+"\n"+passYear+"\n"+experience+"\n"+address+"\n"+qualification);
+//		System.out.println("\n"+fname+"\n"+mname+"\n"+lname+"\n"+datex+"\n"+passYear+"\n"+experience+"\n"+address+"\n"+qualification);
+//		skills.forEach(System.out::println);
+//		System.out.println(email+"\n"+phone+"\n"+percentage+"\n"+uname+"\n"+password);
+		JobseekerModel jmodel=new JobseekerModel(fname,mname,lname,datex,passYear,experience,address,qualification,email,phone,percentage,uname,password);
 		
-		skills.forEach(System.out::println);
-		
-		System.out.println(email+"\n"+phone+"\n"+percentage+"\n"+uname+"\n"+password);
+		loginJobSeeker();
 		}
 	
 	public void loginJobSeeker() {
