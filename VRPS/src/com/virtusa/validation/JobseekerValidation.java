@@ -28,9 +28,11 @@ public boolean validString(String val) {
 		boolean result=false;
 		String data=String.valueOf(number);
 		if(data.matches(".*[0-9]")) {
-			result=true;
+			return true;
 		}
-		return result;
+		else
+			return false;
+		
 	}
 	
 	public boolean validSalary(double salary) {

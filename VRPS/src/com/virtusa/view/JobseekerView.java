@@ -33,6 +33,7 @@ public class JobseekerView {
 	public void registerJobSeeker() {
 		JobseekerValidation validator=new JobseekerValidation(); 
 		Scanner scanner=new Scanner(System.in);
+		boolean flag=true;
 		//////////////////////
 		System.out.print("First Name:");
 		String firstName=scanner.next();
@@ -71,23 +72,37 @@ public class JobseekerView {
 			}
 		////////////////////////////
 
-		
-		
+		Date datex=null;		
+		do {
 		System.out.println("\nEnter DOB(dd-mm-yyyy):");
 		String date=scanner.next();
 		
 		SimpleDateFormat dateFormat=new SimpleDateFormat("dd-mm-yyyy");
-		Date datex=null;
+
 		try {
 			datex=dateFormat.parse(date);
+			flag=false;
 			}
 		catch(ParseException e) {
 			System.out.println("Enter valid Data in Specified Format");
 		}
-		
+		}
+		while(flag);
+		////////
 		System.out.println("Enter year of passing:");
 		int passYear=scanner.nextInt();
-		
+		boolean validyearofPass=validator.validNumber(passYear);
+		if(!validyearofPass) {
+			try {
+				throw new ValidationException("Input Format Error\nInvalid entry for year of pass");
+			}
+			catch(ValidationException e) {
+				System.out.println(e.getMessage());
+				
+			}
+			
+		}
+		//////
 		System.out.println("Years of Experience:");
 		int experience=scanner.nextInt();
 		
@@ -118,7 +133,7 @@ public class JobseekerView {
 				break;
 		case 5: break;
 		
-		default:skills.add("Buffon");
+		default:skills.add("c");
 			}
 		
 		}while(choice!=5);
@@ -144,7 +159,7 @@ public class JobseekerView {
 //		skills.forEach(System.out::println);
 //		System.out.println(email+"\n"+phone+"\n"+percentage+"\n"+uname+"\n"+password);
 		JobseekerModel jmodel=new JobseekerModel(firstName,mName,lName,datex,passYear,experience,address,qualification,email,phone,percentage,uname,password);
-		loginModel lmodel=new loginModel(uname,password);
+
 		loginJobSeeker();
 		}
 	
@@ -157,6 +172,8 @@ public class JobseekerView {
 		
 		System.out.println("Enter password:");
 		String password=sc.next();
+
+		loginModel lmodel=new loginModel(uname,password);
 		
 		/*
 		 * 
