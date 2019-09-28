@@ -6,7 +6,10 @@ import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 
+import com.virtusa.exception.ValidationException;
 import com.virtusa.model.JobseekerModel;
+import com.virtusa.model.loginModel;
+import com.virtusa.validation.JobseekerValidation;
 
 public class JobseekerView {
 
@@ -28,18 +31,50 @@ public class JobseekerView {
 	}
 	
 	public void registerJobSeeker() {
-		Scanner sc=new Scanner(System.in);
-		System.out.println("\nEnter first name:");
-		String fname=sc.next();
+		JobseekerValidation validator=new JobseekerValidation(); 
+		Scanner scanner=new Scanner(System.in);
+		//////////////////////
+		System.out.print("First Name:");
+		String firstName=scanner.next();
+		
+		boolean validfirstName=validator.validString(firstName);
+		if(!validfirstName)
+			try {
+			throw new ValidationException("[!ERROR!:Invalid First Name]");
+			}catch(ValidationException e) {
+				System.out.println(e.getMessage());
+				mainMenu();
+			}
+		////////////////////////////
 		
 		System.out.println("\nEnter middle name:");
-		String mname=sc.next();
-		
+		String mName=scanner.next();
+		boolean validmiddleName=validator.validString(mName);
+		if(!validmiddleName)
+			try {
+			throw new ValidationException("[!ERROR!:Invalid Middle Name]");
+			}catch(ValidationException e) {
+				System.out.println(e.getMessage());
+				mainMenu();
+			}
+		////////////////////////////
 		System.out.println("\nEnter last name:");
-		String lname=sc.next();
+		String lName=scanner.next();
+		
+		boolean validlastName=validator.validString(lName);
+		if(!validlastName)
+			try {
+			throw new ValidationException("[!ERROR!:Invalid Last Name]");
+			}catch(ValidationException e) {
+				System.out.println(e.getMessage());
+				mainMenu();
+			}
+		////////////////////////////
+
+		
 		
 		System.out.println("\nEnter DOB(dd-mm-yyyy):");
-		String date=sc.next();
+		String date=scanner.next();
 		
 		SimpleDateFormat dateFormat=new SimpleDateFormat("dd-mm-yyyy");
 		Date datex=null;
@@ -51,16 +86,16 @@ public class JobseekerView {
 		}
 		
 		System.out.println("Enter year of passing:");
-		int passYear=sc.nextInt();
+		int passYear=scanner.nextInt();
 		
 		System.out.println("Years of Experience:");
-		int experience=sc.nextInt();
+		int experience=scanner.nextInt();
 		
 		System.out.println("Enter Address:");
-		String address=sc.next();
+		String address=scanner.next();
 		
 		System.out.println("Enter qualification:");
-		String qualification=sc.next();
+		String qualification=scanner.next();
 
 		System.out.println("Enter Skills:");
 		List<String> skills=new ArrayList<String>();
@@ -70,7 +105,7 @@ public class JobseekerView {
 		System.out.println("\n1.Java\n2.SQL\n3.Data Science\n4.Testing\n5.Exit");
 		do {
 
-		choice=sc.nextInt();
+		choice=scanner.nextInt();
 		
 		switch(choice) {
 		case 1:skills.add("java");
@@ -89,27 +124,27 @@ public class JobseekerView {
 		}while(choice!=5);
 		
 		System.out.println("Enter email:");
-		String email=sc.next();
+		String email=scanner.next();
 		
 		System.out.println("Enter Phone Number:");
-		String phone=sc.next();
+		String phone=scanner.next();
 		
 		
 		System.out.println("Enter graduation percentage:");
-		float percentage=sc.nextFloat();
+		float percentage=scanner.nextFloat();
 		
 		System.out.println("Enter username:");
-		String uname=sc.next();
+		String uname=scanner.next();
 		
 		System.out.println("Enter password:");
-		String password=sc.next();
+		String password=scanner.next();
 		
 		
 //		System.out.println("\n"+fname+"\n"+mname+"\n"+lname+"\n"+datex+"\n"+passYear+"\n"+experience+"\n"+address+"\n"+qualification);
 //		skills.forEach(System.out::println);
 //		System.out.println(email+"\n"+phone+"\n"+percentage+"\n"+uname+"\n"+password);
-		JobseekerModel jmodel=new JobseekerModel(fname,mname,lname,datex,passYear,experience,address,qualification,email,phone,percentage,uname,password);
-		
+		JobseekerModel jmodel=new JobseekerModel(firstName,mName,lName,datex,passYear,experience,address,qualification,email,phone,percentage,uname,password);
+		loginModel lmodel=new loginModel(uname,password);
 		loginJobSeeker();
 		}
 	

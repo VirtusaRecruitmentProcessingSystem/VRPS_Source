@@ -12,4 +12,11 @@ public void registerJobSeeker(JobseekerModel model) {
  	
 }
 
+
+public void loginJobseeker(JobseekerModel model) {
+	
+	
+	
+}
+
 }
