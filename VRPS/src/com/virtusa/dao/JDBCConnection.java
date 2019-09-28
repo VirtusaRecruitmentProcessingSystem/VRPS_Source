@@ -1,7 +1,5 @@
 package com.virtusa.dao;
 
-public class HRDAO {
+public class JDBCConnection {
 
-	
-	
 }
