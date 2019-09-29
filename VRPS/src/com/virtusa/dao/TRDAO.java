@@ -8,5 +8,6 @@ import com.virtusa.entities.JobseekerEntity;
 public interface TRDAO {
 
 	public List<JobseekerEntity> getAllJobSeekers()throws ClassNotFoundException, SQLException;
-	
+	public JobseekerEntity getTRShortlistcandidates(String Firstname)throws ClassNotFoundException, SQLException;
+
 }

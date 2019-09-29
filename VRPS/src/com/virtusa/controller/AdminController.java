@@ -9,8 +9,7 @@ public class AdminController {
 	{
 		AdminModel adminModel=new AdminModel(username,password);
 		try {
-			String userType=
-					userService.userAuthenticationService(userModel);
+			String userType= userService.userAuthenticationService(userModel);
 			
 			if(userType.contentEquals("Employee")) {
 				StudentView studentView=new StudentView();
