@@ -60,7 +60,7 @@ public void storeSuccessful(){
 	System.out.println("login successful");
 	public void displayJobseekerDetails(List<JobseekerModel> jobseekerModel)
 	{
-		//
+		
 		JobseekerModel.forEach(System.out::println);
 	}
 
