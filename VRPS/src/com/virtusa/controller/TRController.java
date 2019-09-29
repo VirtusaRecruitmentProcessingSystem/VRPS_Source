@@ -21,18 +21,18 @@ public class TRController
 		
 		public void handleRetrieveJobseeker(RequestType request) {
 			
-			EmployeeView employeeView=new EmployeeView();
+			JobseekerView jobseekerView=new JobseekerView();
 			List<JobseekerModel> models=trServices.retrieveJobseekers();
 			MainView mainView=new MainView();
 			switch(request) {
 			
-			case FIRSTNAME: employeeView.showjobseekerfirstname(models);
+			case FIRSTNAME: jobseekerView.showjobseekerfirstname(models);
 			           mainView.viewEmployeeMenu();
 				       break;
-			case MIDDLENAME:employeeView.showJobseekermiddlename(models);
+			case MIDDLENAME:jobseekerView.showJobseekermiddlename(models);
 			           mainView.viewEmployeeMenu();
 				       break;
-			case LASTNAME:employeeView.showJobseekerlastname(models);
+			case LASTNAME:jobseekerView.showJobseekerlastname(models);
 		               mainView.viewEmployeeMenu();
 				       break;
 				
@@ -44,15 +44,7 @@ public class TRController
 			
 		}
 		
-		public void handleRetrieveDepartmentName(int employeeId) {
-			EmployeesModel employees=employeeService.retrieveDepartmentName(employeeId);
-			EmployeeView employeeView=new EmployeeView();
-			employeeView.showDepartmentName(employees);
-		}
-
-	}
-
-		public void userAuthentication(String userName, String password) {
+			public void userAuthentication(String userName, String password) {
 			// TODO Auto-generated method stub
 			
 			

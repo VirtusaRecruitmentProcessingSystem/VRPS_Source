@@ -2,7 +2,8 @@ package com.virtusa.model;
 
 public class TrModel {
 
-
+private String userName;
+private String password;
 	private String firstName;
 	private String middleName;
 	private String lastName;
@@ -23,6 +24,19 @@ public class TrModel {
 	}
 	public void setLastName(String lastName) {
 		this.lastName = lastName;
+	}
+	
+	public String getUserName() {
+		return userName;
+	}
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
 	}
 	@Override
 	public String toString() {
