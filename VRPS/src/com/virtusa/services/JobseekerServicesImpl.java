@@ -10,5 +10,11 @@ public class JobseekerServicesImpl implements JobseekerServices{
 		
 	}
 
+	@Override
+	public void JobseekerLogin() {
+		// TODO Auto-generated method stub
+		
+	}
+
 
 }
