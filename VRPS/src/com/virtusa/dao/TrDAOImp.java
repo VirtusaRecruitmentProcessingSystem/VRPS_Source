@@ -13,7 +13,7 @@ import com.virtusa.integrate.ConectionManager;
 
 public class TrDAOImp  implements TRDAO
 {
-	//
+	
 
 		@Override
 		public List<JobseekerEntity> getAllJobSeekers() throws ClassNotFoundException,SQLException
