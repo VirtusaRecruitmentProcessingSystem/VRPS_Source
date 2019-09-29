@@ -2,10 +2,22 @@ package com.virtusa.entities;
 
 public class AdminEntity {
 
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 
-	
+	public AdminEntity() {
+		
 	}
+	private String username;
+	public String getusername() {
+		return username;
+	}
+	public void setusername(String username) {
+		this.adminId = adminId;
+	}
+	@Override
+	public String toString() {
+		return "Admin [adminId=" + adminId + "]";
+	}
+	
+
 
 }
