@@ -28,8 +28,14 @@ public class AdminView {
 
 		
 	    AdminController admincontroller=new AdminController();
-		admincontroller.userAuthentication(username,password);
-		
+	    boolean success=admincontroller.userAuthentication(username,password);
+		if(success) {
+			System.out.println("1.Add Job Post");
+			System.out.println("2.delete job post");
+			System.out.
+			
+			
+		}
 		}
 
 

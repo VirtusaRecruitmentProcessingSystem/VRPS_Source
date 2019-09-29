@@ -179,4 +179,13 @@ public class JobseekerView {
 		 * 
 		 */
 	}
+
+	
+	public void applyJob() {
+		
+	}
+	
+	public void viewStatus() {
+		
+	}
 }
