@@ -11,3 +11,4 @@ public interface TRDAO {
 	public JobseekerEntity getTRShortlistcandidates(String Firstname)throws ClassNotFoundException, SQLException;
 
 }
+//
