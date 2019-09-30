@@ -32,4 +32,4 @@ public class HRDAOImp implements HRDAO
 		ConectionManager.closeConnection();
 		return jobseekersList;
 	}	
-}
+}//
