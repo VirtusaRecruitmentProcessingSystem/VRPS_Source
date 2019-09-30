@@ -4,7 +4,7 @@ import com.virtusa.services.AdminServices;
 
 public class AdminController {
 
-	public void userAuthentication(String username, String password)
+	public boolean userAuthentication(String username, String password)
 	{
 		
 		
@@ -14,12 +14,16 @@ public class AdminController {
 	      String username1=username;
 		AdminModel adminModel=new AdminModel(username1,password1);
 			String userType= adminService.userAuthenticationService(adminModel);
-				
 			
 			
+			
+			
+			
+			
+			
+			
+			
+			return false;
 		
-		
-		
-	
 
 }}
