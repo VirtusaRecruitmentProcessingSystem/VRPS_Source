@@ -15,9 +15,10 @@ public class ApplicationModel {
 	private String email;
 	private String phone;
 	private double percentage;
+	public int jobId;
 
 	public ApplicationModel(String fname, String mname, String lname, Date datex, int passYear, int experience,
-			String address, String qualification, String email, String phone, float percentage) {
+			String address, String qualification, String email, String phone, float percentage,int jobId) {
 		// TODO Auto-generated constructor stub
 		this.fname=fname;
 		this.mname=mname;
@@ -26,7 +27,7 @@ public class ApplicationModel {
 		this.email=email;
 		this.experience=experience;
 		this.lname=lname;
-	
+		this.jobId=jobId;
 		this.phone=phone;
 		this.qualification=qualification;
 		
@@ -101,5 +102,16 @@ public class ApplicationModel {
 		this.percentage = percentage;
 	}
 
+
+	public int getJobId() {
+		return jobId;
+	}
+
+
+	public void setJobId(int jobId) {
+		this.jobId = jobId;
+	}
+
+	
 	
 }

@@ -1,59 +1,61 @@
 package com.virtusa.entities;
 
+import java.util.List;
+
 public class JobEntity {
 
-	int jobpostId;
-	String description;
-	String desgination;
-	String eligibilty;
-	String requiredSkills;
+	private int jobId;
+	private String description;
+	private String designation;
+	private double eligibiltyPer;
+	List<String> skills;
 
 	
+	public JobEntity() {}
 	
-	
-public int getpostJobId() {
-		return jobpostId;
+	public JobEntity(int jobId, String description, String designation, double eligibiltyPer, List<String> skills) 
+	{
+		this.jobId = jobId;
+		this.description = description;
+		this.designation = designation;
+		this.eligibiltyPer = eligibiltyPer;
+		this.skills = skills;
 	}
 
-	public void setpostJobId(int jobpostId) {
-		this.jobpostId = jobpostId;
+	
+	
+	public int getJobId() {
+		return jobId;
 	}
-
+	public void setJobId(int jobId) {
+		this.jobId = jobId;
+	}
 	public String getDescription() {
 		return description;
 	}
-
-	public void setDescription(String descrption) {
-		this.description = descrption;
+	public void setDescription(String description) {
+		this.description = description;
 	}
-
-	public String getDesgination() {
-		return desgination;
+	public String getDesignation() {
+		return designation;
 	}
-
-	public void setDesgination(String desgination) {
-		this.desgination = desgination;
+	public void setDesignation(String desgination) {
+		this.designation = desgination;
 	}
-
-	public String getEligibilty() {
-		return eligibilty;
+	public double getEligibiltyPer() {
+		return eligibiltyPer;
 	}
-
-	public void setEligibilty(String eligibilty) {
-		this.eligibilty = eligibilty;
+	public void setEligibiltyPer(double eligibiltyPer) {
+		this.eligibiltyPer = eligibiltyPer;
 	}
-
-	public String getRequiredSkills() {
-		return requiredSkills;
+	public List<String> getSkills() {
+		return skills;
 	}
-
-	public void setRequiredSkills(String requiredSkills) {
-		this.requiredSkills = requiredSkills;
+	public void setSkills(List<String> skills) {
+		this.skills = skills;
 	}
-
-
-
-
-
+	
+	
+	
 
 }
