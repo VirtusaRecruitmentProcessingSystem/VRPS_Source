@@ -4,7 +4,6 @@ import java.util.List;
 import java.util.Scanner;
 import com.virtusa.controller.TRController;
 import com.virtusa.model.JobseekerModel;
-import com.virtusa.model.StudentModel;
 import com.virtusa.model.TrModel;
 
 public class TRView 
@@ -12,7 +11,7 @@ public class TRView
 		public void showFirstName(JobseekerModel models)
 		{
 			
-			System.out.println("First Name:"+models.getJobseekerModel().getFirstName()+"\n");
+			//System.out.println("First Name:"+models.getJobseekerModel().getFirstName()+"\n");
 		}
 		
 		public void showMiddleName(List<JobseekerModel> models) 
@@ -58,11 +57,6 @@ public class TRView
 public void storeSuccessful(){
 	
 	System.out.println("login successful");
-	public void displayJobseekerDetails(List<JobseekerModel> jobseekerModel)
-	{
-		
-		JobseekerModel.forEach(System.out::println);
-	}
 
 }
 

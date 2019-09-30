@@ -11,62 +11,40 @@ import java.util.List;
 import com.virtusa.entities.JobseekerEntity;
 import com.virtusa.integrate.ConectionManager;
 
-public class TrDAOImp  implements TRDAO
+public class TrDAOImp implements TRDAO
 {
-	
+	Connection connection=ConectionManager.openConnection();
 
 		@Override
-		public List<JobseekerEntity> getAllJobSeekers() throws ClassNotFoundException,SQLException
+		public void getAllJobSeekers() throws ClassNotFoundException,SQLException
 		{
 			// TODO Auto-generated method stub
-			Connection connection=ConectionManager.openConnection();
+			//Connection connection=ConectionManager.openConnection();
 			Statement statement=connection.createStatement();
-			ResultSet resultSet=statement.executeQuery("select * from jobseeker");
+			ResultSet resultSet=statement.executeQuery
+					("select applicationId,firstName,email from jobseeker j join application_details a  on(j.application_id=a.application_id) where first_round_status='selected' ");;
 			
-			List<JobseekerEntity> jobseekersList=new ArrayList<JobseekerEntity>();
 			while(resultSet.next()) {
 				JobseekerEntity jobseekersentity=new JobseekerEntity();
-				jobseekersentity.setFirst_name(resultSet.getString("first_id"));
-				jobseekersentity.setMiddle_name(resultSet.getString("middle_name"));
-				jobseekersentity.setLast_name(resultSet.getString("last_name"));
-				jobseekersentity.setEmailid(resultSet.getString("email"));
-				jobseekersentity.setPhoneNumber(resultSet.getString("phone_number"));
-				//jobseekersentity.setQualification(resultSet.getString("qualification"));
-				//jobseekersentity.setDate_of_birth(resultSet.getLocaDate("dateofbirth"));
-				jobseekersList.add(jobseekersentity);
+				 String ApplicationId =resultSet.getString(1);
+				 String firstName=resultSet.getString(2);
+				 String email=resultSet.getString(3);
+				
 			}
-			ConectionManager.closeConnection();
-			return jobseekersList;
+		
+		
 		}
-
-		@Override
-		public JobseekerEntity getTRShortlistcandidates(String Firstname) throws ClassNotFoundException, SQLException {
-			Connection connection=ConectionManager.openConnection();
-			PreparedStatement statement=connection.prepareStatement("");
-			statement.setString(1, Firstname);
-			
-			ResultSet resultSet=statement.executeQuery();
-			JobseekerEntity jobseekerentity=new JobseekerEntity();
-			while(resultSet.next()) {
-				
-				jobseekerentity.setFirst_name(resultSet.getString("Firstname"));
-			}
-			return jobseekerentity;
-				/*Departments departments=new Departments();
-				departments.setDepartmentName(resultSet.getString("department_name"));
-				
-				employees.setDepartments(departments);
-				
-			}
-			return employees;
+		public void  updateJobseekerStatus() throws ClassNotFoundException,SQLException
+		{
+			 String sql="update table application_details set tr_round_status=? where applicationId=?";
+			PreparedStatement preparestatement=connection.prepareStatement(sql);
+			int rowsAffected=preparestatement.executeUpdate();
+			//ResultSet resultSet=statement.executeQuery
+					//("update table application_details set tr_round_status="" where applicationId=?"); 
 		}
-
-		@Override
-		public List<JobseekerEntity> getAllJobSeekers() throws ClassNotFoundException, SQLException {
-			// TODO Auto-generated method stub
-			return null;
-		}*/
-
+		
+ConectionManager.closeConnection();
 	}
 
-}
+
+

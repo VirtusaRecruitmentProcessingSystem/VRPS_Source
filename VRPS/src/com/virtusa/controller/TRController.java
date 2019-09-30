@@ -7,7 +7,9 @@ import com.virtusa.helper.FactoryTrHelper;
 import com.virtusa.helper.RequestType;
 import com.virtusa.model.JobseekerModel;
 import com.virtusa.services.TRServices;
+import com.virtusa.ui.VRPSHome;
 import com.virtusa.view.EmployeeView;
+import com.virtusa.view.JobseekerView;
 
 public class TRController
 {
@@ -23,24 +25,8 @@ public class TRController
 			
 			JobseekerView jobseekerView=new JobseekerView();
 			List<JobseekerModel> models=trServices.retrieveJobseekers();
-			MainView mainView=new MainView();
-			switch(request) {
-			
-			case FIRSTNAME: jobseekerView.showjobseekerfirstname(models);
-			           mainView.viewJObseeker();
-				       break;
-			case MIDDLENAME:jobseekerView.showJobseekermiddlename(models);
-			           mainView.viewJobseeker();
-				       break;
-			case LASTNAME:jobseekerView.showJobseekerlastname(models);
-		               mainView.viewJobseeker();
-				       break;
-				
-			default:
-				      break;
-			
-			}
-			
+			VRPSHome vrpshome=new VRPSHome();
+	
 			
 		}
 		

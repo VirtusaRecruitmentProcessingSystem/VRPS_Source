@@ -1,7 +1,7 @@
 package com.virtusa.helper;
 
 public enum RequestType {
-FIRSTNAME("firstname"),MIDDLENAME("middlename"),LASTNAME("lastname");
+APPLICATION_ID("applicationid"),FIRSTNAME("firstname"),LASTNAME("lastname"),EMAIL("email");
 	
 	private String val;
 	private RequestType(String val) {

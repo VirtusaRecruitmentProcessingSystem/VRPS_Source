@@ -24,7 +24,7 @@ public class JobseekerEntity {
 	private LocalDate date_of_birth;
 	private String emailid;
 	private String phoneNumber;
-	private List<String> qualification;
+	private String qualification;
 	public String getFirst_name() {
 		return first_name;
 	}
@@ -62,10 +62,10 @@ public class JobseekerEntity {
 	public void setPhoneNumber(String phoneNumber) {
 		this.phoneNumber = phoneNumber;
 	}
-	public List<String> getQualification() {
+	public String getQualification() {
 		return qualification;
 	}
-	public void setQualification(List<String> qualification) {
+	public void setQualification(String qualification) {
 		this.qualification = qualification;
 	}
 	
