@@ -16,5 +16,8 @@ public class JobseekerServicesImpl implements JobseekerServices{
 		
 	}
 
-
+	public void viewStatus(int refId) {
+		
+	}
+	
 }

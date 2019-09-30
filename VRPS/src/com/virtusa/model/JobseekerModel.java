@@ -1,6 +1,7 @@
 package com.virtusa.model;
 
 import java.util.Date;
+import java.util.List;
 
 public class JobseekerModel {
 	
@@ -17,12 +18,12 @@ public class JobseekerModel {
 	private double percentage;
 	private String uname;
 	private String password;
-
+	private List<String> skills;
 
 	
 	public JobseekerModel(String fname, String mname, String lname, Date datex, int passYear, int experience,
 			String address, String qualification, String email, String phone, float percentage, String uname,
-			String password) {
+			String password,List<String> skills) {
 		// TODO Auto-generated constructor stub
 		this.fname=fname;
 		this.mname=mname;
@@ -35,6 +36,19 @@ public class JobseekerModel {
 		this.phone=phone;
 		this.qualification=qualification;
 		this.uname=uname;
+		this.skills=skills;
+		}
+
+
+
+	public List<String> getSkills() {
+		return skills;
+	}
+
+
+
+	public void setSkills(List<String> skills) {
+		this.skills = skills;
 	}
 
 

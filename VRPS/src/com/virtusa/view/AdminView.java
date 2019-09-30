@@ -32,7 +32,7 @@ public class AdminView {
 		if(success) {
 			System.out.println("1.Add Job Post");
 			System.out.println("2.delete job post");
-	
+			System.out.println();
 			
 			
 		}

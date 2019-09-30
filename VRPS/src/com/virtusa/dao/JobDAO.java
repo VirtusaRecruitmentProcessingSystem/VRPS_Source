@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.List;
 
 /*Name                  Null     Type         
@@ -17,6 +18,18 @@ ELIGIBILITYPERCENTAGE          NUMBER(2,2)
 
 
 import com.virtusa.entities.JobEntity;
+
+/*
+ * 	/*Name                  Null     Type         
+	--------------------- -------- ------------ 
+	JOB_ID                NOT NULL NUMBER(10)   
+	DESIGNATION           NOT NULL VARCHAR2(40) 
+	REQUIRED_EXPERIENCE            NUMBER(2)    
+	REQUIRED_SKILLS                VARCHAR2(40) 
+	ELIGIBILITYPERCENTAGE          NUMBER(2,2)  
+	*/
+
+
 
 public class JobDAO {
 
@@ -62,14 +75,6 @@ public class JobDAO {
   }
 
 	
-	/*Name                  Null     Type         
-	--------------------- -------- ------------ 
-	JOB_ID                NOT NULL NUMBER(10)   
-	DESIGNATION           NOT NULL VARCHAR2(40) 
-	REQUIRED_EXPERIENCE            NUMBER(2)    
-	REQUIRED_SKILLS                VARCHAR2(40) 
-	ELIGIBILITYPERCENTAGE          NUMBER(2,2)  
-	*/
 
 	public void viewallJobs() {
 		
@@ -85,14 +90,15 @@ public class JobDAO {
 		{
 			PreparedStatement st=conn.prepareStatement("select * from job_description");
 			ResultSet rs=st.executeQuery();
-			System.out.println("==================");
+			System.out.println("=========================================");
 			while(rs.next()) {
 				int jobId=rs.getInt("JOB_ID");
 				String designation=rs.getString("DESIGNATION");
+				int experience=rs.getInt("REQUIRED_EXPERIENCE");
 				double eligibiltyPer=rs.getDouble("ELIGIBILITYPERCENTAGE");
 				String skills=rs.getString("REQUIRED_SKILLS");
 				
-				
+				System.out.println("JobId :"+jobId+"\nDesignation: "+designation+"\neligibilty percentage: "+eligibiltyPer+"\nExperience: "+experience+"\nSkills: "+skills);
 				
 			}
 		}
@@ -101,4 +107,30 @@ public class JobDAO {
 		}
 
 	}
+	
+	public void dropJobPost(int jobId) {
+		
+		try {
+			Class.forName("oracle.jdbc.driver.OracleDriver");  
+		}
+		catch(Exception e) {}
+		
+		
+		try(Connection conn=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl","hr","hr");)
+		{
+			PreparedStatement st=conn.prepareStatement("delete from job_description where JOB_ID=?");
+			st.setInt(1, jobId);
+			int rows=st.executeUpdate();
+			if(rows>0) 
+				System.out.println("deleted successfully");
+			else
+				System.out.println("deletion  UNsuccessful");
+	}
+		catch(SQLException e) {
+		System.out.println("********************* Internal Crash*******");
+		}
+		
+	
+}
+	
 }

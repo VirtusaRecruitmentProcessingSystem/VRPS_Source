@@ -16,7 +16,7 @@ REQUIRED_SKILLS                VARCHAR2(40)
 ELIGIBILITYPERCENTAGE          NUMBER(2,2) 
  */
 
-public class jobServiceImpl implements jobServices {
+public class JobServiceImpl implements jobServices {
 
 	
 	@Override
@@ -91,3 +91,4 @@ public class jobServiceImpl implements jobServices {
 	}
 
 }
+ 
