@@ -10,6 +10,9 @@ import java.util.List;
 import com.virtusa.entities.JobseekerEntity;
 import com.virtusa.integrate.ConectionManager;
 
+
+
+
 public class HRDAOImp implements HRDAO 
 {
 	@Override
