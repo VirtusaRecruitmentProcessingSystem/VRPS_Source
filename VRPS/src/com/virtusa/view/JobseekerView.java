@@ -12,7 +12,7 @@ import com.virtusa.model.loginModel;
 import com.virtusa.validation.JobseekerValidation;
 
 public class JobseekerView {
-
+//
 
 	public void mainMenu() {
 		// TODO Auto-generated method stub
@@ -183,7 +183,9 @@ public class JobseekerView {
 	
 	public void applyJob() {
 		
+		
 	}
+	
 	
 	public void viewStatus() {
 		
