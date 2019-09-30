@@ -27,13 +27,13 @@ public class TRController
 			switch(request) {
 			
 			case FIRSTNAME: jobseekerView.showjobseekerfirstname(models);
-			           mainView.viewEmployeeMenu();
+			           mainView.viewJObseeker();
 				       break;
 			case MIDDLENAME:jobseekerView.showJobseekermiddlename(models);
-			           mainView.viewEmployeeMenu();
+			           mainView.viewJobseeker();
 				       break;
 			case LASTNAME:jobseekerView.showJobseekerlastname(models);
-		               mainView.viewEmployeeMenu();
+		               mainView.viewJobseeker();
 				       break;
 				
 			default:
