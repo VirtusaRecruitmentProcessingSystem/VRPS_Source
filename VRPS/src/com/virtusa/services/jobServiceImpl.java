@@ -4,7 +4,17 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
+import com.virtusa.dao.JobDAO;
 import com.virtusa.entities.JobEntity;
+
+
+/*
+ * JOB_ID                NOT NULL NUMBER(10)   
+DESIGNATION           NOT NULL VARCHAR2(40) 
+REQUIRED_EXPERIENCE            NUMBER(2)    
+REQUIRED_SKILLS                VARCHAR2(40) 
+ELIGIBILITYPERCENTAGE          NUMBER(2,2) 
+ */
 
 public class jobServiceImpl implements jobServices {
 
@@ -13,6 +23,9 @@ public class jobServiceImpl implements jobServices {
 	public void viewjobPosts() {
 		// TODO Auto-generated method stub
 
+
+		
+		
 	}
 
 	@Override
@@ -21,11 +34,11 @@ public class jobServiceImpl implements jobServices {
 		
 		// TODO Auto-generated method stub
 		
-			int jobId;
-			String description;
-			String designation;
-			double eligibiltyPer;
-			List<String> skills;
+		 int jobId;
+		 String designation;
+		 int experience;
+		 double eligibilityPercentage;
+		 List<String> skills;
 
 			Scanner input=new Scanner(System.in);
 			
@@ -63,13 +76,18 @@ public class jobServiceImpl implements jobServices {
 				}
 			
 			}while(choice!=5);
-			System.out.println(" Enter Job Description:");
-			description=input.next();
+
 			
 			System.out.println(" Enter Eligibility percentage:");
-			eligibiltyPer=input.nextDouble();
-			JobEntity newjob=new JobEntity(jobId,description,designation,eligibiltyPer,skills);
+			eligibilityPercentage=input.nextDouble();
+			System.out.println(" Enter years of experience:");
+			experience=input.nextInt();
 			
+			
+
+			JobEntity newjob=new JobEntity(jobId,designation,experience,eligibilityPercentage,skills);
+			JobDAO addingJobPost=new JobDAO();
+			addingJobPost.addJobPost(newjob);
 	}
 
 }
