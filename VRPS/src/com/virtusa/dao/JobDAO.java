@@ -6,13 +6,15 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.util.List;
 
-/*
- * JOB_ID                NOT NULL NUMBER(10)   
+/*Name                  Null     Type         
+--------------------- -------- ------------ 
+JOB_ID                NOT NULL NUMBER(10)   
 DESIGNATION           NOT NULL VARCHAR2(40) 
 REQUIRED_EXPERIENCE            NUMBER(2)    
 REQUIRED_SKILLS                VARCHAR2(40) 
-ELIGIBILITYPERCENTAGE          NUMBER(2,2) 
- */
+ELIGIBILITYPERCENTAGE          NUMBER(2,2)  
+*/
+
 
 import com.virtusa.entities.JobEntity;
 
@@ -23,8 +25,8 @@ public class JobDAO {
 	{
 		
 		 int jobId=jentity.getJobId();
-
 		 String designation=jentity.getDesignation();
+		 int experience=jentity.getExperience();
 		 double eligibiltyPer=jentity.geteligibilityPercentage();
 		List<String> skills=jentity.getSkills();
 		
@@ -40,10 +42,10 @@ public class JobDAO {
 		
 		try(Connection conn=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl","hr","hr");)
 		{
-			PreparedStatement st=conn.prepareStatement("insert into job_description(job_id,designation,eligibilityPercentage,required_experience,required_skills ) values(?,?,?,?,?)");
+			PreparedStatement st=conn.prepareStatement("insert into job_description(job_id,designation,required_experience,REQUIRED_SKILLS,ELIGIBILITYPERCENTAGE ) values(?,?,?,?,?)");
 			st.setInt(1, jobId);
-			st.setString(2, descriptionString);
-			st.setString(3,designation);
+			st.setString(2, designation);
+			st.setInt(3,experience);
 			st.setDouble(4, eligibiltyPer);
 			st.setString(5, skillSet);
 			
@@ -58,6 +60,16 @@ public class JobDAO {
 		}
 	
   }
+
+	
+	/*Name                  Null     Type         
+	--------------------- -------- ------------ 
+	JOB_ID                NOT NULL NUMBER(10)   
+	DESIGNATION           NOT NULL VARCHAR2(40) 
+	REQUIRED_EXPERIENCE            NUMBER(2)    
+	REQUIRED_SKILLS                VARCHAR2(40) 
+	ELIGIBILITYPERCENTAGE          NUMBER(2,2)  
+	*/
 
 	public void viewallJobs() {
 		
@@ -75,14 +87,13 @@ public class JobDAO {
 			ResultSet rs=st.executeQuery();
 			System.out.println("==================");
 			while(rs.next()) {
-				int jobId=rs.getInt("job_id");
-				String description=rs.getString(columnIndex);
-				String designation;
-				double eligibiltyPer;
-				String skills;
+				int jobId=rs.getInt("JOB_ID");
+				String designation=rs.getString("DESIGNATION");
+				double eligibiltyPer=rs.getDouble("ELIGIBILITYPERCENTAGE");
+				String skills=rs.getString("REQUIRED_SKILLS");
 				
 				
-				System.out.println(rs.);
+				
 			}
 		}
 		catch(Exception e) {
