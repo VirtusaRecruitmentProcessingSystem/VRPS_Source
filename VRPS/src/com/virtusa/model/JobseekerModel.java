@@ -34,7 +34,7 @@ public class JobseekerModel {
 
 
 	public JobseekerModel(String fname, String mname, String lname, Date datex, int passYear, int experience,
-			String address, String qualification, String email, String phone, float percentage, String uname,
+			String address, String qualification, String email, String phone, double percentage, String uname,
 			String password,List<String> skills) {
 		// TODO Auto-generated constructor stub
 		this.fname=fname;

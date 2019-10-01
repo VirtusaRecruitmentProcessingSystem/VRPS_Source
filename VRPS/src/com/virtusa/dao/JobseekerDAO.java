@@ -51,10 +51,16 @@ EMAIL_ID         VARCHAR(40) NOT NULL,
 YEAR_OF_PASSING  NUMBER(4) NOT NULL,
 JOB_ID number
 gradpercentage number (2,2)
+EXPERIENCE               NUMBER(2)
 		 */
+	// boolean i=true;
+	 ResultSet rs;
+	 int id=0;
 		try(Connection conn=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl","hr","hr");)
 		{
-			PreparedStatement st=conn.prepareStatement("insert into jobseeker values(?,?,?,TO_DATE(?,'dd-mm-yyyy'),?,?,?,?,empidseq.nextval,?,?");
+			
+			String query1="insert into jobseeker values(?,?,?,TO_DATE(?,'dd-mm-yyyy'),?,?,?,?,emp_id.nextval,?,?)";
+			PreparedStatement st=conn.prepareStatement(query1);
 			st.setString(1, fname);
 			st.setString(2,mname );
 			st.setString(3, lname );
@@ -65,12 +71,15 @@ gradpercentage number (2,2)
 			st.setInt(8,passYear);
 			st.setDouble(9,percentage );
 			st.setInt(10, experience);
-			 int i = st.executeUpdate();
-		        if (i > 0) {
+			//int in;
+			int i=st.executeUpdate();
+		        if (i>0) {
 		            System.out.println(" Jobseeker profile created succesfully");
-		            PreparedStatement stmt=conn.prepareStatement("select empidseq.currval from  dual");
-		            ResultSet rs=stmt.executeQuery();
-		            int id=rs.getInt("currval");
+		            String q="select emp_id.currval from  dual";
+		             st=conn.prepareStatement(q);
+		            rs=st.executeQuery();
+		            while(rs.next())
+		            id=rs.getInt("currval");
 		            System.out.println("JobSeeker ID:"+id);
 		            
 		        } else {
@@ -78,7 +87,8 @@ gradpercentage number (2,2)
 		        }
 	 
 		}catch(SQLException s) {
-			System.out.println(":-:-:-:-:-:-Error at backend Workstation:");
+			System.out.println(":-:-:-:-:-:-Error at backend Workstation:\n");
+			s.printStackTrace();
 		}
 }
 

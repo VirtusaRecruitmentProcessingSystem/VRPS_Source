@@ -148,7 +148,7 @@ static	Scanner scanner=new Scanner(System.in);
 		
 		
 		System.out.println("Enter graduation percentage:");
-		float percentage=scanner.nextFloat();
+		double percentage=scanner.nextDouble();
 		
 		System.out.println("Enter username:");
 		String uname=scanner.next();
