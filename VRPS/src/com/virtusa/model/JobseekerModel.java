@@ -21,6 +21,18 @@ public class JobseekerModel {
 	private List<String> skills;
 
 	
+	public List<String> getSkills() {
+		return skills;
+	}
+
+
+
+	public void setSkills(List<String> skills) {
+		this.skills = skills;
+	}
+
+
+
 	public JobseekerModel(String fname, String mname, String lname, Date datex, int passYear, int experience,
 			String address, String qualification, String email, String phone, float percentage, String uname,
 			String password,List<String> skills) {
@@ -38,18 +50,6 @@ public class JobseekerModel {
 		this.uname=uname;
 		this.skills=skills;
 		}
-
-
-
-	public List<String> getSkills() {
-		return skills;
-	}
-
-
-
-	public void setSkills(List<String> skills) {
-		this.skills = skills;
-	}
 
 
 

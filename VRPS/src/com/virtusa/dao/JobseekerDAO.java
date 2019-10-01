@@ -3,6 +3,9 @@ package com.virtusa.dao;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 
@@ -28,20 +31,56 @@ public void addJobSeeker(JobseekerModel model) {
 	 double percentage=model.getPercentage();
 	 int jobId;
 	 List<String> skills=model.getSkills();
-	 
+	 SimpleDateFormat formatter = new SimpleDateFormat("dd-mm-yyyy");
+	 String strDate = formatter.format(datex);  
 	 try {
 			Class.forName("oracle.jdbc.driver.OracleDriver");  
 		}
-		catch(Exception e) {}
-		
-		
+		catch(Exception e) {e.printStackTrace();}
+	
+		/*
+		 * jobseeker(
+
+FIRST_NAME       VARCHAR2(40) NOT NULL, 
+MIDDLE_NAME      VARCHAR2(40) NOT NULL,
+LAST_NAME        VARCHAR2(40) NOT NULL, 
+DATE_OF_BIRTH    DATE NOT NULL ,         
+PHONE_NUMBER             VARCHAR2(40), 
+QUALIFICATION    VARCHAR2(40) NOT NULL,
+EMAIL_ID         VARCHAR(40) NOT NULL,
+YEAR_OF_PASSING  NUMBER(4) NOT NULL,
+JOB_ID number
+gradpercentage number (2,2)
+		 */
 		try(Connection conn=DriverManager.getConnection("jdbc:oracle:thin:@localhost:1521:orcl","hr","hr");)
 		{
-			PreparedStatement st=conn.prepareStatement("insert into jobseeker values(?,?,?,TO_DATE(?,'dd-mm-yyyy'),?,?,?,?,empidseq.nextval);
+			PreparedStatement st=conn.prepareStatement("insert into jobseeker values(?,?,?,TO_DATE(?,'dd-mm-yyyy'),?,?,?,?,empidseq.nextval,?,?");
 			st.setString(1, fname);
-			st.setString(2, );
+			st.setString(2,mname );
+			st.setString(3, lname );
+			st.setString(4,strDate);
+			st.setString(5, phone);
+			st.setString(6, qualification);
+			st.setString(7, email);
+			st.setInt(8,passYear);
+			st.setDouble(9,percentage );
+			st.setInt(10, experience);
+			 int i = st.executeUpdate();
+		        if (i > 0) {
+		            System.out.println(" Jobseeker profile created succesfully");
+		            PreparedStatement stmt=conn.prepareStatement("select empidseq.currval from  dual");
+		            ResultSet rs=stmt.executeQuery();
+		            int id=rs.getInt("currval");
+		            System.out.println("JobSeeker ID:"+id);
+		            
+		        } else {
+		            System.out.println("stuck somewhere");
+		        }
 	 
-	 
-	 
+		}catch(SQLException s) {
+			System.out.println(":-:-:-:-:-:-Error at backend Workstation:");
+		}
 }
+
+
 }

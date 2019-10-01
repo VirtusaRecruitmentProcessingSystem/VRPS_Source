@@ -29,7 +29,6 @@ public void jobApplication(ApplicationModel applicationModel) {
 
 public void viewStatus(int refId) {
 	JobServiceImpl statusobj=new JobServiceImpl(); 
-	
 }
 
 }

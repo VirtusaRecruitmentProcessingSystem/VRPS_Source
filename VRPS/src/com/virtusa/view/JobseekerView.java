@@ -6,6 +6,7 @@ import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 
+import com.virtusa.controller.JobseekerController;
 import com.virtusa.exception.ValidationException;
 import com.virtusa.model.ApplicationModel;
 import com.virtusa.model.JobseekerModel;
@@ -159,9 +160,13 @@ static	Scanner scanner=new Scanner(System.in);
 //		System.out.println("\n"+fname+"\n"+mname+"\n"+lname+"\n"+datex+"\n"+passYear+"\n"+experience+"\n"+address+"\n"+qualification);
 //		skills.forEach(System.out::println);
 //		System.out.println(email+"\n"+phone+"\n"+percentage+"\n"+uname+"\n"+password);
-		JobseekerModel jmodel=new JobseekerModel(firstName,mName,lName,datex,passYear,experience,address,qualification,email,phone,percentage,uname,password);
-
-		loginJobSeeker();
+		JobseekerModel jmodel=new JobseekerModel(firstName,mName,lName,datex,passYear,experience,address,qualification,email,phone,percentage,uname,password,skills);
+		
+		JobseekerController newjs=new JobseekerController();
+		newjs.registerJobSeeker(jmodel);
+		
+		mainMenu();
+		//loginJobSeeker();
 		}
 	
 	public void loginJobSeeker() {
